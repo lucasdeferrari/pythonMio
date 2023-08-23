@@ -1,0 +1,39 @@
+<html>
+    <body>
+    <h1 style = "color:rgb(232, 70, 6)">
+    Hola crack sos un objeto
+    </h1>
+    <p>
+        Hoy es: {{momentoActual.day}}/{{momentoActual.month}}/{{momentoActual.year}}
+    </p>
+    <p>
+        Los paises cargados son: {{paises}}
+    </p>
+   
+<p>
+    <strong>Mensaje secreto: </strong>
+</p>
+
+    <p>
+        <ul>
+        {% if paises %}
+        
+        {% for unPais in paises %} 
+
+        <!-- el | es un filtro, cumple el mismo rol que un metodo -->
+        <li>{{unPais|first}}</li>
+
+        {% endfor %}
+
+        {% else %}
+            <p>
+                No hay elementos que mostrar.
+            </p>
+
+        {% endif %}
+        </ul>
+
+
+    </p>
+    </body>
+    </html>

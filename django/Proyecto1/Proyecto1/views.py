@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 import datetime
-from django.template import Template, Context
+from django.template import Template, Context, loader
 
 class Persona(object):
     def __init__(self, nombre, apellido, edad):
@@ -80,6 +80,7 @@ def saludoConVariable(request):
 
 def saludoConObjetos(request):
     persona1 = Persona("Lucas", "Deferrari", 20)
+    temasDelCurso = ["plantillas", "modelos", "formularios", "vistas", "despliegue"]
 
     fechaHoraActual = datetime.datetime.now()
     
@@ -87,8 +88,21 @@ def saludoConObjetos(request):
     plantilla = Template(docExterno.read())
 
     docExterno.close()
-    contexto = Context({"nombrePersona":persona1.nombre, "apellidoPersona": persona1.apellido, "edadPersona": persona1.edad, "momentoActual" : fechaHoraActual})
+    contexto = Context({"nombrePersona":persona1.nombre, "apellidoPersona": persona1.apellido, "edadPersona": persona1.edad, "temas": temasDelCurso, "momentoActual" : fechaHoraActual})
     documento = plantilla.render(contexto)
+
+    return HttpResponse(documento)
+
+def clase8(request):
+    paises = ["Holanda", "Oman", "Lituania", "Argentina"]
+
+    fechaHoraActual = datetime.datetime.now()
+    
+    # GUARDE LAS PLANTILLAS EN settings.py
+    docExterno = loader.get_template('clase8.html')
+
+    # Puedo renderizar el documento directamente si lo hago con loader, no tengo q usar el contexto
+    documento = docExterno.render({"paises": paises, "momentoActual" : fechaHoraActual})
 
     return HttpResponse(documento)
 

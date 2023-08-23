@@ -54,7 +54,8 @@ ROOT_URLCONF = 'Proyecto1.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        # EN DIRS SE GUARDA LA RUTA DE LAS PLANTILLAS
+        'DIRS': ['C:/Users/Lucas/OneDrive - UTN.BA/Documentos/pythonMio/django/Proyecto1/Proyecto1/plantillas'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

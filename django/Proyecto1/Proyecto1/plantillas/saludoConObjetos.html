@@ -4,10 +4,48 @@
     Hola crack sos un objeto
     </h1>
     <p>
-        Tu nombre es {{nombrePersona}} {{apellidoPersona}}. Tenes {{edadPersona}} a&ntilde;os.
+        Tu nombre es {{nombrePersona}} {{apellidoPersona.upper}}. Tenes {{edadPersona}} a&ntilde;os.
     </p>
     <p>
         Hoy es: {{momentoActual.day}}/{{momentoActual.month}}/{{momentoActual.year}}
+    </p>
+    <p>
+        Los temas son: {{temas}}
+    </p>
+    <p>
+        El primer tema es: {{temas.0}}. El segundo tema es {{temas.1}}
+    </p>
+
+<p>
+    <strong>Temas del curso:</strong>
+</p>
+
+    <p>
+
+        <!-- ul es para armar una lista desordenada -->
+        <ul>
+        <!-- verifica que exista la lista "temas" y que tenga algun elemento -->
+        {% if temas %}
+        
+        <!-- Asi se abre un bucle desde las plantillas -->
+        <!-- recorre cada tema llamado elTema de la lista temas -->
+        {% for elTema in temas %} 
+
+        <!-- li es para marcar que cada uno de estos temas es un elemento de la lista -->
+        <li>{{elTema}}</li>
+
+        <!-- Asi se cierra un bucle desde las plantillas -->
+        {% endfor %}
+
+        {% else %}
+            <p>
+                No hay elementos que mostrar.
+            </p>
+
+        {% endif %}
+        </ul>
+
+
     </p>
     </body>
     </html>
