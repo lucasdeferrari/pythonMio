@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from Proyecto1.views import saludo, despedida, dameFecha, calculaEdad, saludoConPlantilla, saludoConVariable, saludoConObjetos, clase8
+from Proyecto1.views import saludo, despedida, dameFecha, calculaEdad, saludoConPlantilla, saludoConVariable, saludoConObjetos, clase8, shortcuts, pressBancaHerencia, sentadillaHerencia
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,5 +27,8 @@ urlpatterns = [
     path('saludoPlt/', saludoConPlantilla),
     path('saludoVar/', saludoConVariable),
     path('saludoObj/', saludoConObjetos),
-    path('clase8/', clase8)
+    path('clase8/', clase8),
+    path('shortcuts/', shortcuts),
+    path('pressBanca/', pressBancaHerencia),
+    path('sentadilla/', sentadillaHerencia)
 ]

@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title> 
+
+
+            {# Esto es un comentario de Django en la plantilla #}
+            {% block title %} {% endblock %}
+
+        </title>
+    </head>
+
+    <body>
+
+        <h1 style="background-color: blue; color: white; text-align: center;"> Lucas Deferrari</h1>
+       
+        {% include "superior/barra.html" %}
+
+        <h3> Facherisimo</h3>
+
+        <p>
+            Hoy es: {{momentoActual.day}}/{{momentoActual.month}}/{{momentoActual.year}}
+        </p>
+
+        <!-- Asi le decimos a django que lo que esta dentro del bloque es un contenido cambiante en las plantillas hijas -->
+        {% block content %} {% endblock %}
+
+
+        <p style="background-color: blue; color: white; text-align: right;">
+            Crack del gimnasio. Gracias por su visita
+        </p>
+
+    </body>
+</html>

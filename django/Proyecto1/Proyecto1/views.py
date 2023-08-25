@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 import datetime
 from django.template import Template, Context, loader
+from django.shortcuts import render
 
 class Persona(object):
     def __init__(self, nombre, apellido, edad):
@@ -106,3 +107,20 @@ def clase8(request):
 
     return HttpResponse(documento)
 
+def shortcuts(request):
+    paises = ["Holanda", "Oman", "Lituania", "Argentina"]
+
+    fechaHoraActual = datetime.datetime.now()
+    
+    # me olvido de cargar el contexto, y operar con las demas cosas, hago todo en el render
+    return render(request, "clase8.html", {"paises": paises, "momentoActual" : fechaHoraActual})
+
+def pressBancaHerencia(request):
+    fechaHoraActual = datetime.datetime.now()
+    
+    return render(request, "hijo1.html", {"momentoActual" : fechaHoraActual})
+
+def sentadillaHerencia(request):
+    fechaHoraActual = datetime.datetime.now()
+    
+    return render(request, "hijo2.html", {"momentoActual" : fechaHoraActual})
