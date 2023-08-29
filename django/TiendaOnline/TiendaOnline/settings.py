@@ -55,7 +55,7 @@ ROOT_URLCONF = 'TiendaOnline.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['C:/Users/Lucas/OneDrive - UTN.BA/Documentos/pythonMio/django/TiendaOnline/gestionPedidos/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

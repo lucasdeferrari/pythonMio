@@ -1,3 +1,11 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 
-# Create your views here.
+def busquedaProductos(request):
+
+    return render(request, "busquedaProductos.html")
+
+def buscar(request):
+    mensaje ="Artículo buscado: %r" %request.GET["producto"]
+
+    return HttpResponse(mensaje)
