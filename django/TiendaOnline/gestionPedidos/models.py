@@ -28,4 +28,3 @@ class Pedidos(models.Model):
 
     def __str__(self):
         return 'Numero: %s' %(self.numero)
-
