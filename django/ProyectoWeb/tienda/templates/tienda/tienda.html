@@ -1,0 +1,33 @@
+{% extends "ProyectoWebApp/base.html" %}
+{% load static %}
+{% block content %}
+
+
+<div class="container">
+    <h1 style="color: white;">Tienda</h1>
+    <div class="row" style="display: flex; flex-wrap: wrap;">
+
+        {% for producto in productos %}
+        <div class="col-md-3" style="display: flex; flex-direction: column;">
+            <div class="card" style="width: 100%; margin: 5px 5px; flex: 1;">
+                <img src="{{producto.imagen.url}}" class="card-img-top" style="max-height: 100%; width: 100%;">
+
+                <div class="card-body" style="text-align: center; display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
+                    <div style="flex: 1;">
+                        <h5 class="card-title" style="margin: 0;">{{producto.nombre}}</h5>
+                    </div>
+                    <div style="flex: 1;">
+                        <p class="card-text" style="margin: 0;">{{producto.precio}}&nbsp;$</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% endfor %}
+
+    </div>
+</div>
+
+
+
+{% endblock %}
