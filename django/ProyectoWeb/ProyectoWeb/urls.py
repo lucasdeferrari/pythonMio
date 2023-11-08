@@ -30,6 +30,8 @@ urlpatterns = [
 
     path('tienda/', include('tienda.urls')),
 
+    path('carro/', include('carroCompras.urls')),
+
     path('', include('ProyectoWebApp.urls')),
 ]
 
