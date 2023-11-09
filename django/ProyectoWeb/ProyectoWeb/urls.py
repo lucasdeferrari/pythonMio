@@ -32,6 +32,8 @@ urlpatterns = [
 
     path('carro/', include('carroCompras.urls')),
 
+    path('autenticacion/', include('autenticacion.urls')),
+
     path('', include('ProyectoWebApp.urls')),
 ]
 
