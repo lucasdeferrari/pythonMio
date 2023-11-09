@@ -8,7 +8,15 @@
 
     <div style = "float:right;">
         
+        {% if request.user.is_authenticated %}
+
         {% include "carro/widget.html" %}
+
+        {% else %}
+
+        <a href = "{% url 'IniciarSesion' %}" class = "btn btn-primary">Inicia sesión para usar el carro de compras</a>
+
+        {% endif %}
     
     </div>
 
@@ -32,10 +40,11 @@
 
                 </div>
 
-                <div class = "card-footer text-center">
-                    <a  href = "{% url 'carroCompras:agregar' producto.id %}" class = "btn btn-success">Agregar al carrito</a>
-                </div>
-            
+                {% if request.user.is_authenticated %}
+                    <div class = "card-footer text-center">
+                        <a  href = "{% url 'carroCompras:agregar' producto.id %}" class = "btn btn-success">Agregar al carrito</a>
+                    </div>
+                {% endif %}
             </div>
         </div>
         

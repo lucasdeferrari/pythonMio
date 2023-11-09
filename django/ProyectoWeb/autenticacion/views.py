@@ -3,6 +3,7 @@ from django.views.generic import View
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout
 from django.contrib import messages
+from .forms import CustomAuthenticationForm
 
 
 class RegistroUsuarioView(View):
@@ -31,7 +32,7 @@ def cerrar_sesion(request):
     
 def iniciar_sesion(request):
     if request.method == "POST":
-        form = AuthenticationForm(request, data=request.POST)
+        form = CustomAuthenticationForm(request, data=request.POST)
 
         if form.is_valid():
             usuario = form.get_user()
@@ -44,6 +45,6 @@ def iniciar_sesion(request):
             return render(request, "login/iniciar_sesion.html", {"form":form})
     
     else:
-        form = AuthenticationForm()
+        form = CustomAuthenticationForm()
 
         return render(request, "login/iniciar_sesion.html", {"form":form})
