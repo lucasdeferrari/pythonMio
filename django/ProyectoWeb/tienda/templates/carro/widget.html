@@ -61,13 +61,24 @@
             <td colspan="3">Total: {{importeTotalCarro}} $</td>
         </tr>
 
+        {% if request.session.carro.items %}
+        <tr>
+            <td colspan="3" style="text-align: center;">
+
+                <a href="#" class="btn btn-success">Crear pedido</a>
+
+            </td>
+
+
+        </tr>
+        {% endif %}
+
 
     </tfoot>
 
-
+    
 
 </table>
-
 
 
     
