@@ -34,6 +34,8 @@ urlpatterns = [
 
     path('autenticacion/', include('autenticacion.urls')),
 
+    path('pedidos/', include('pedidos.urls', namespace='pedidos')),
+
     path('', include('ProyectoWebApp.urls')),
 ]
 
